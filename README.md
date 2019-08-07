@@ -1,17 +1,17 @@
 # SQL1
 Learning Structured Query Language
-
-#making a table
 --Sql Server 2014 Express Edition
 --Batches are separated by 'go'
 
 select @@version as 'sql server version'
 create table Customer
 (
+    Id int Primary Key identity(1,1),
     Firstname varchar(50),
     Lastname varchar(50),
     Age int
     )
+--each variable is a column    
 --varchar means variable with 50 character limit
 
 insert into dbo.Customer (Firstname, Lastname, [Age])
@@ -37,20 +37,20 @@ insert into dbo.Customer (Firstname, Lastname, [Age])
 --select *
 --from Customer
 
-select FirstName,LastName,Age
+select id,FirstName,LastName,Age
 from Customer
 where FirstName = 'Terry'
 and LastName = 'Fun'
 
 --ok let's keep going
 
-select FirstName,LastName,Age
+select id,FirstName,LastName,Age
 from Customer
 where FirstName = 'Terry'
 and LastName like 'Muffin%'
 --the '%' gives anything with 'Muffin'
 
-select FirstName,LastName,Age
+select id,FirstName,LastName,Age
 from Customer
 where FirstName = 'Terry'
 and LastName like 'Muffin_'
@@ -61,5 +61,22 @@ Set Age = 20
 where FirstName = 'Terry'
 and LastName = 'Fun'
 
-select *
-from Customer
+--adding a column
+alter table Customer
+add City varchar(50)
+
+update Customer
+Set City = 'Santa Barb'
+where FirstName = 'Terry'
+
+
+update Customer
+Set City = 'Erie'
+where FirstName = 'Terry'
+and LastName = 'Fun'
+
+update Customer
+Set City = 'Amherst'
+where id = 4
+
+select * from Customer
