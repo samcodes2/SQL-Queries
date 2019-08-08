@@ -1,5 +1,6 @@
 # SQL1
 Learning Structured Query Language
+
 --Sql Server 2014 Express Edition
 --Batches are separated by 'go'
 
@@ -58,7 +59,7 @@ and LastName = 'Fun'
 --the '_' gives anything with 'Muffin', but it MUST have the additional character too
 
 update Customer
-Set Age = 33
+Set Age = 17
 where FirstName = 'Terry'
 and LastName = 'Fun'
 
@@ -120,6 +121,11 @@ add foreign key (ProductId) references Products(Id)
 
 --Let's join our tables together
 --when we see ProductId, we want it to join the Product in the product table
+
+update Customer
+Set LastName = 'Poop69'
+where FirstName = 'Terry'
+and LastName = 'Fun'
 
 select orders.orderdate,products.productname,customer.*
 from Orders
