@@ -1,11 +1,6 @@
 # SQL1
-Learning Structured Query Language
-
---Sql Server 2014 Express Edition
---Batches are separated by 'go'
-
-select @@version as 'sql server version'
-
+--Learning Structured Query Language
+--Works in Microsoft SQL Server 2017
 create table Customer
 (
     Id int Primary Key identity(1,1),
