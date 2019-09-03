@@ -97,8 +97,6 @@ Create table Orders
     CustomerID int,
     ProductID int,
     )
-
-select * from Customer
 insert into Orders (OrderDate, CustomerID, ProductID) values (GetDate(),2,2)
 insert into Orders (OrderDate, CustomerID, ProductID) values (GetDate(),4,1)
 insert into Orders (OrderDate, CustomerID, ProductID) values (GetDate(),6,2)
@@ -108,7 +106,7 @@ insert into Orders (OrderDate, CustomerID, ProductID) values (GetDate(),6,2)
 --it ran anyway, but we only have 10 customers. Need FOREIGN KEYS
 alter table Orders 
 add foreign key (CustomerId) references Customer(Id)
---make sure the CustomerID references the 'Id' column from Customer table
+--Customer(Id) = from the 'Customer' table, use 'Id'
 
 --gives us an error now. good. preserves the RELATIONS between data
 alter table Orders 
