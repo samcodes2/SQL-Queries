@@ -116,8 +116,8 @@ add foreign key (ProductId) references Products(Id)
 --when we see ProductId, we want it to join the Product in the product table
 
 update Customer
-Set LastName = 'Poop69'
-where FirstName = 'Terry'
+Set LastName = 'Cereal85'
+where FirstName = 'John'
 and LastName = 'Fun'
 
 select orders.orderdate,products.productname,customer.*
@@ -126,3 +126,29 @@ from Orders
 
 inner join Customer on Orders.CustomerID=Customer.id
 inner join Products on Orders.productID=Products.id
+
+#Works in Microsoft SQL Server 2017 create table customers ( id int, name varchar(50), age int, city varchar(50));
+
+insert into customers(id,name,age,city) values (3,'Blue',17,'Erie'); insert into customers(id,name,age,city) values (2,'Muffin',19,'Chicago');
+
+select * from Customers
+
+create procedure getCity AS BEGIN Select city from customers END --6 SQL INterview Q's create table department ( department_id int, department_name varchar(50) );
+
+insert into dbo.department(department_id,department_name) values (1, 'IT'); insert into dbo.department(department_id,department_name) values (2, 'sales');
+
+create table employees ( employee_id int primary key identity(2002,1), first_name varchar(50), last_name varchar(50), gender char(1), position varchar(50), department_id int, salary decimal(6) ); insert into employees (first_name,last_name,gender, position, department_id,salary) values ('Super','Man', 'M','Tester',1,75000); insert into employees (first_name,last_name,gender, position, department_id,salary) values ('Jessica','Liyers', 'F','Architect',1,60000); insert into employees (first_name,last_name,gender, position, department_id,salary) values ('Max','Powers', 'M','Sales Rep',2,59000); insert into employees (first_name,last_name,gender, position, department_id,salary) values ('Stacy','Jacobs', 'F','Sales Manager',2,730000);
+
+--Q1: get employee data for highest salary select * from employees where salary = (select max(salary) from employees)
+
+--Q2: return highest salary in employee table select max(salary) from employees
+
+--Q3: return 2nd highest salary from employee table select max(salary) from employees where salary < (select max(salary) from employees)
+
+--Q4: select range of employees based on id select * from employees where employee_id between 2002 and 2003
+
+--Q5: return an employee with the highest salary and employee's dept name select e.first_name, e.last_name, e.salary, d.department_name from employees e Inner Join Department d ON (e.department_id = d.department_id) where salary = (select max(salary) from employees)
+
+--Q6: return highest salary, employee, dept name, for each dept select e.first_name, e.last_name, e.salary, d.department_name from employees e Inner Join Department d ON (e.department_id = d.department_id)
+
+select value from (select ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS RowNum, value from string_split('2019_July_HairsprayGelLite_Facebook_Type4','_')) as a where RowNum = 2 where salary IN (select max(salary) from employees group by department_id)
