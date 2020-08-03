@@ -13,61 +13,44 @@ insert into dbo.Customer (Firstname, Lastname, [Age])
 insert into dbo.Customer (Firstname, Lastname, [Age])
     values('Barry','Bonds',50);
 insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Mike','Schmidt',40);
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Cookie','Burnt',25);    
+    values('Mike','Schmidt',40);  
 insert into dbo.Customer (Firstname, Lastname, [Age])
     values('Mike','Andy',50);    
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Terry','Fun',30);
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Terry','Muffin',33);    
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Terry','Muffin1',30);    
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Terry','Muffin2',30);    
-insert into dbo.Customer (Firstname, Lastname, [Age])
-    values('Terry','Muffin3',30);     
+ 
 --select *
 --from Customer
 
 select id,FirstName,LastName,Age
 from Customer
-where FirstName = 'Terry'
-and LastName = 'Fun'
-
---ok let's keep going
+where FirstName = 'Mike'
+and LastName = 'Andy'
 
 --select id,FirstName,LastName,Age
 --from Customer
---where FirstName = 'Terry'
---and LastName like 'Muffin%'
---the '%' gives anything with 'Muffin'
+--where FirstName = 'Mike'
+--and LastName like 'Schmidt%'
+--the '%' gives anything with 'Schmidt'
 
 --select id,FirstName,LastName,Age
 --from Customer
---where FirstName = 'Terry'
---and LastName like 'Muffin_'
---the '_' gives anything with 'Muffin', but it MUST have the additional character too
+--where FirstName = 'Mike'
+--and LastName like 'Schmidt_'
+--the '_' gives anything with 'Schmidt', but it MUST have the additional character too
 
 update Customer
 Set Age = 17
-where FirstName = 'Terry'
-and LastName = 'Fun'
+where FirstName = 'Mike'
+and LastName = 'Schmidt'
 
 --adding a column
 alter table Customer
 add City varchar(50)
 
 update Customer
-Set City = 'Santa Barb'
-where FirstName = 'Terry'
+Set City = 'Santa Barbara'
+where FirstName = 'Joey'
 
 
-update Customer
-Set City = 'Erie'
-where FirstName = 'Terry'
-and LastName = 'Fun'
 
 update Customer
 Set City = 'Amherst'
